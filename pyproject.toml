@@ -20,6 +20,13 @@ dependencies = [
     "tqdm>=4.67.0",
 ]
 
+[project.optional-dependencies]
+# Extras I find useful for local experimentation and debugging
+dev = [
+    "ipython>=8.0.0",
+    "rich>=13.0.0",
+]
+
 [tool.uv.sources]
 torch = [
     { index = "pytorch-cu128" },
