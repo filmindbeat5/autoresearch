@@ -36,8 +36,9 @@ Each experiment runs on a single GPU. The training script runs for a **fixed tim
 
 **Simplicity criterion**: All else being equal, simpler is better. A small improvement that adds ugly complexity is not worth it. Conversely, removing something and getting equal or better results is a great outcome — that's a simplification win. When evaluating whether to keep a change, weigh the complexity cost against the improvement magnitude. A 0.001 val_bpb improvement that adds 20 lines of hacky code? Probably not worth it. A 0.001 val_bpb improvement from deleting code? Definitely keep. An improvement of ~0 but much simpler code? Keep.
 
-**The first run**: Your very first run should always be to establish the baseline — run `train.py` unmodified and record the result in `results.tsv` before making any changes.
+**The first run**: Your very first run should always be to establish the baseline — run `train.py` without any modifications and record the result in `results.tsv`.
 
-## Personal Notes
+## Notes (personal)
 
-> **Note (personal fork):** I'm using this primarily as a learning exercise to understand how small LLM training decisions (optimizer choice, architecture tweaks, batch size) affect sample efficiency within a fixed compute budget. The 5-minute wall-clock constraint is a nice forcing function for that. My focus is on understanding *why* changes help, not just chasing the metric — so I'll try to document reasoning in commit messages.
+- After each session, commit `results.tsv` so there's a running history of what worked and what didn't.
+- When a change clearly doesn't help after one run, revert it immediately rather than letting dead code accumulate in `train.py`.
