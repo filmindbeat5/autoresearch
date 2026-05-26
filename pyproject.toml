@@ -25,6 +25,7 @@ dependencies = [
 dev = [
     "ipython>=8.0.0",
     "rich>=13.0.0",
+    "ipdb>=0.13.0",  # prefer ipdb over pdb for nicer tracebacks
 ]
 
 [tool.uv.sources]
